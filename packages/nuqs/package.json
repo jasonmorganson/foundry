@@ -1,0 +1,20 @@
+{
+  "name": "@jasonmorganson/nuqs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.13.10",
+    "nuqs": "^2.9.5"
+  },
+  "devDependencies": {
+    "@jasonmorganson/typescript-config": "workspace:*",
+    "@types/react": "^19.2.14",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
