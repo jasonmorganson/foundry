@@ -14,7 +14,7 @@
     "@react-email/preview-server": "5.2.9",
     "@jasonmorganson/email": "workspace:*",
     "react": "19.2.4",
-    "react-email": "5.2.9"
+    "react-email": "6.9.1"
   },
   "devDependencies": {
     "@jasonmorganson/typescript-config": "workspace:*",
