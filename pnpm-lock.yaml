@@ -363,6 +363,10 @@ importers:
         version: 5.9.3
 
   apps/studio:
+    dependencies:
+      typescript:
+        specifier: '>=5.4.0'
+        version: 5.9.3
     devDependencies:
       prisma:
         specifier: 7.4.2

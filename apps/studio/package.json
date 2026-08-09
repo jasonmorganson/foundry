@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "prisma": "7.4.2"
+  },
+  "dependencies": {
+    "typescript": ">=5.4.0"
   }
 }
