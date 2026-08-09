@@ -13,7 +13,7 @@ jobs:
     name: Aube and Node
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: jdx/mise-action@v3
       - run: aubr check:foundry
       - run: aubr check
@@ -24,7 +24,7 @@ jobs:
     name: Nub compatibility
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: jdx/mise-action@v3
       - run: nub install --frozen-lockfile
       - run: nub run check:foundry
@@ -41,7 +41,7 @@ jobs:
       matrix:
         manager: [pnpm, bun]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: jdx/mise-action@v3
       - run: ${{ matrix.manager }} install
       - run: ${{ matrix.manager }} run check:foundry
