@@ -17,16 +17,16 @@ Better Auth is a comprehensive, open-source authentication framework for TypeScr
 Uninstall the existing Clerk dependencies from the `auth` package...
 
 ```package-install
-npm uninstall @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
+npm uninstall @clerk/nextjs @clerk/themes @clerk/types --filter @jasonmorganson/auth
 ```
 
 ...and install the Better Auth dependencies:
 
 ```package-install
-npm install better-auth next --filter @repo/auth
+npm install better-auth next --filter @jasonmorganson/auth
 ```
 
-Additionally, add `@repo/database` to the `auth` package dependencies.
+Additionally, add `@jasonmorganson/database` to the `auth` package dependencies.
 
 ## 2. Update your environment variables
 
@@ -52,7 +52,7 @@ Update the `auth` package files with the following code:
 import { betterAuth } from 'better-auth';
 import { nextCookies } from "better-auth/next-js";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { database } from "@repo/database"
+import { database } from "@jasonmorganson/database"
 
 export const auth = betterAuth({
   database: prismaAdapter(database, {
@@ -245,7 +245,7 @@ export const { POST, GET } = toNextJsHandler(auth);
 ```
 
 ```tsx title="apps/app/app/api/auth/[...all]/route.ts"
-export { POST, GET } from '@repo/auth/handlers'
+export { POST, GET } from '@jasonmorganson/auth/handlers'
 ```
 
 ## 9. Update your apps
@@ -286,7 +286,7 @@ const fullOrganization = await auth.api.getFullOrganization({
 ```
 
 ```tsx title="webhooks/stripe/route.ts"
-import { clerkClient } from '@repo/auth/server';
+import { clerkClient } from '@jasonmorganson/auth/server';
 
 const clerk = await clerkClient();
 const users = await clerk.users.getUserList();
@@ -296,7 +296,7 @@ const user = users.data.find(
 
 // to
 
-import { database } from '@repo/database';
+import { database } from '@jasonmorganson/database';
 
 const user = await database.user.findFirst({
   where: {

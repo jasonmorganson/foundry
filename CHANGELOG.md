@@ -3170,7 +3170,7 @@ Thank you, null[@idkgene](https://github.com/idkgene), for all your work!
 	- Adjusted the `UserButton` styling to ensure it occupies the full width of the sidebar.
 
 - **Chores**
-	- Added new dependencies: `@repo/collaboration` and `fuse.js` to the project.
+	- Added new dependencies: `@jasonmorganson/collaboration` and `fuse.js` to the project.
 <!-- end of auto-generated comment: release notes by coderabbit.ai -->
 
 ---

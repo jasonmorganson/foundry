@@ -26,12 +26,12 @@ Here's how to switch from Neon to [EdgeDB](https://edgedb.com) for your `next-fo
 
 Create an account at [EdgeDB Cloud](https://cloud.edgedb.com/). Once done, create a new instance (you can use EdgeDB's free tier). We'll later connect to it through the EdgeDB CLI.
 
-## 2. Swap out the required dependencies in `@repo/database`
+## 2. Swap out the required dependencies in `@jasonmorganson/database`
 
 Uninstall the existing dependencies...
 
 ```package-install
-npm uninstall @prisma/adapter-neon @prisma/client prisma --filter @repo/database
+npm uninstall @prisma/adapter-neon @prisma/client prisma --filter @jasonmorganson/database
 ```
 
 ... and install the new dependencies:
@@ -40,9 +40,9 @@ npm uninstall @prisma/adapter-neon @prisma/client prisma --filter @repo/database
 npm install edgedb @edgedb/generate
 ```
 
-## 3. Setup EdgeDB in `@repo/database` package
+## 3. Setup EdgeDB in `@jasonmorganson/database` package
 
-In the `@repo/database` directory, run:
+In the `@jasonmorganson/database` directory, run:
 
 ```sh title="Terminal"
 npx edgedb project init --server-instance <org_name>/<instance_name> --non-interactive
@@ -62,7 +62,7 @@ dbschema
 
 This command also links your environment to the EdgeDB Cloud instance, allowing the EdgeDB client libraries to automatically connect to it without any additional configuration.
 
-You can also delete `prisma/` directory from the `@repo/database`:
+You can also delete `prisma/` directory from the `@jasonmorganson/database`:
 
 ```sh title="Terminal"
 rm -fr packages/database/prisma
@@ -118,8 +118,8 @@ Now you can update your queries to use the EdgeDB client.
 For example, here’s how we can update the `page` query in `app/(authenticated)/page.tsx`:
 
 ```tsx title="app/(authenticated)/page.tsx {2,7-8}"
-import { database } from '@repo/database';
-import edgeql from '@repo/database/dbschema/edgeql-js';
+import { database } from '@jasonmorganson/database';
+import edgeql from '@jasonmorganson/database/dbschema/edgeql-js';
 
 // ...
 

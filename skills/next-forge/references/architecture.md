@@ -52,7 +52,7 @@ The marketing website. Integrates BaseHub CMS for blog posts and content, SEO op
 Serverless API endpoints for webhooks (Stripe, Clerk), cron jobs, and any dedicated API routes. Deployed as a separate Vercel project.
 
 ### email (Port 3003)
-React Email preview server for developing and testing email templates. Templates are React components in the `@repo/email` package.
+React Email preview server for developing and testing email templates. Templates are React components in the `@jasonmorganson/email` package.
 
 ### docs (Port 3004)
 Documentation site built with Mintlify. Requires the Mintlify CLI for local preview.
@@ -65,20 +65,20 @@ Prisma Studio provides a visual interface for browsing and editing database reco
 
 ## Package Naming
 
-All packages use the `@repo/<name>` convention:
+All packages use the `@jasonmorganson/<name>` convention:
 
 ```typescript
-import { database } from '@repo/database';
-import { auth } from '@repo/auth';
-import { stripe } from '@repo/payments';
+import { database } from '@jasonmorganson/database';
+import { auth } from '@jasonmorganson/auth';
+import { stripe } from '@jasonmorganson/payments';
 ```
 
 Import from specific subpaths when needed:
 
 ```typescript
-import { analytics } from '@repo/analytics/server';
-import { upload } from '@repo/storage/client';
-import { log } from '@repo/observability/log';
+import { analytics } from '@jasonmorganson/analytics/server';
+import { upload } from '@jasonmorganson/storage/client';
+import { log } from '@jasonmorganson/observability/log';
 ```
 
 ## Turborepo Pipeline
@@ -121,7 +121,7 @@ Run commands for a specific app or package:
 ```bash
 bun dev --filter app         # Only the main app
 bun dev --filter web         # Only the marketing site
-bun build --filter @repo/database  # Only the database package
+bun build --filter @jasonmorganson/database  # Only the database package
 ```
 
 ## Build Outputs

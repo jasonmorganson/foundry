@@ -27,7 +27,7 @@ Update your environment variables to use the new Prisma Postgres connection stri
 DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=ey...."
 ```
 
-## 3. Swap out the required dependencies in `@repo/database`
+## 3. Swap out the required dependencies in `@jasonmorganson/database`
 
 Uninstall the existing dependencies...
 
@@ -48,7 +48,7 @@ Update the database connection code to use the new Prisma Postgres adapter:
 ```ts title="packages/database/index.ts {4,7}"
 import 'server-only';
 
-import { env } from '@repo/env';
+import { env } from '@jasonmorganson/env';
 import { withAccelerate } from '@prisma/extension-accelerate';
 import { PrismaClient } from '@prisma/client';
 
@@ -126,7 +126,7 @@ import 'server-only';
 import { withPulse } from '@prisma/extension-pulse';
 import { withAccelerate } from '@prisma/extension-accelerate';
 import { PrismaClient } from '@prisma/client';
-import { env } from '@repo/env';
+import { env } from '@jasonmorganson/env';
 
 export const database = new PrismaClient()
   .$extends(withAccelerate())

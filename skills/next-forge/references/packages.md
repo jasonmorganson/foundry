@@ -1,8 +1,8 @@
 # Packages
 
-All packages live in `/packages/` and are imported as `@repo/<name>`.
+All packages live in `/packages/` and are imported as `@jasonmorganson/<name>`.
 
-## Authentication (`@repo/auth`)
+## Authentication (`@jasonmorganson/auth`)
 
 **Provider**: Clerk
 
@@ -16,7 +16,7 @@ Handles user authentication, organization management, and session handling.
 
 **Swappable to**: Supabase Auth, Auth.js, Better Auth.
 
-## Database (`@repo/database`)
+## Database (`@jasonmorganson/database`)
 
 **ORM**: Prisma
 **Default provider**: Neon PostgreSQL
@@ -26,7 +26,7 @@ Handles user authentication, organization management, and session handling.
 
 **Usage**:
 ```typescript
-import { database } from '@repo/database';
+import { database } from '@jasonmorganson/database';
 const users = await database.user.findMany();
 ```
 
@@ -35,7 +35,7 @@ const users = await database.user.findMany();
 
 **Swappable to**: Drizzle, PlanetScale, Supabase, Turso, EdgeDB, Prisma Postgres.
 
-## Payments (`@repo/payments`)
+## Payments (`@jasonmorganson/payments`)
 
 **Provider**: Stripe
 
@@ -48,7 +48,7 @@ const users = await database.user.findMany();
 
 **Swappable to**: Paddle, Lemon Squeezy.
 
-## Email (`@repo/email`)
+## Email (`@jasonmorganson/email`)
 
 **Provider**: Resend + React Email
 
@@ -57,8 +57,8 @@ const users = await database.user.findMany();
 
 **Usage**:
 ```typescript
-import { resend } from '@repo/email';
-import { WelcomeEmail } from '@repo/email/templates/welcome';
+import { resend } from '@jasonmorganson/email';
+import { WelcomeEmail } from '@jasonmorganson/email/templates/welcome';
 
 await resend?.emails.send({
   from: 'hello@example.com',
@@ -70,7 +70,7 @@ await resend?.emails.send({
 
 **Templates**: React components in the email package. Preview at `http://localhost:3003`.
 
-## CMS (`@repo/cms`)
+## CMS (`@jasonmorganson/cms`)
 
 **Provider**: BaseHub
 
@@ -83,7 +83,7 @@ await resend?.emails.send({
 
 **Swappable to**: Content Collections.
 
-## Design System (`@repo/design-system`)
+## Design System (`@jasonmorganson/design-system`)
 
 **Library**: shadcn/ui (New York style, neutral colors)
 
@@ -105,55 +105,55 @@ bun run bump-ui
 
 **Dark mode**: Integrated via `next-themes`. The provider handles theme switching.
 
-## Analytics (`@repo/analytics`)
+## Analytics (`@jasonmorganson/analytics`)
 
 **Web analytics**: Vercel Web Analytics (enable in dashboard), Google Analytics (via `NEXT_PUBLIC_GA_MEASUREMENT_ID`).
 
 **Product analytics**: PostHog (default).
 
 **Key exports**:
-- `analytics` from `@repo/analytics/server` — server-side tracking
-- `analytics` from `@repo/analytics/posthog/client` — client-side tracking
+- `analytics` from `@jasonmorganson/analytics/server` — server-side tracking
+- `analytics` from `@jasonmorganson/analytics/posthog/client` — client-side tracking
 
 **Usage**:
 ```typescript
-import { analytics } from '@repo/analytics/server';
+import { analytics } from '@jasonmorganson/analytics/server';
 analytics?.capture({ event: 'user_signed_up', distinctId: userId });
 ```
 
 **Ad-blocker bypass**: PostHog requests are reverse-proxied through Next.js rewrites (`/ingest/*`).
 
-## Observability (`@repo/observability`)
+## Observability (`@jasonmorganson/observability`)
 
 **Error tracking**: Sentry — captures exceptions and performance data.
 
 **Logging**: BetterStack Logs in production, console in development.
 
 **Key exports**:
-- `log` from `@repo/observability/log` — logging interface (`log.info()`, `log.error()`, etc.)
+- `log` from `@jasonmorganson/observability/log` — logging interface (`log.info()`, `log.error()`, etc.)
 - Sentry configuration via `instrumentation.ts` and `sentry.client.config.ts`
 
 **Uptime monitoring**: BetterStack integration.
 
 **Sentry tunneling**: Requests proxied through rewrites to bypass ad-blockers.
 
-## Storage (`@repo/storage`)
+## Storage (`@jasonmorganson/storage`)
 
 **Provider**: Vercel Blob
 
 **Key exports**:
-- `put` from `@repo/storage` — server-side upload
-- `upload` from `@repo/storage/client` — client-side upload
+- `put` from `@jasonmorganson/storage` — server-side upload
+- `upload` from `@jasonmorganson/storage/client` — client-side upload
 
 **Note**: Server uploads are limited to 4.5MB. Use client uploads for larger files.
 
-## Security (`@repo/security`)
+## Security (`@jasonmorganson/security`)
 
 **Provider**: Arcjet
 
 **Features**: Bot detection, Shield WAF (SQL injection, XSS, OWASP Top 10 prevention), rate limiting, IP geolocation.
 
-**Configuration**: Central client at `@repo/security`, extended per app with specific rules.
+**Configuration**: Central client at `@jasonmorganson/security`, extended per app with specific rules.
 
 **Bot policy**: Allows search engines and preview generators; blocks scrapers and AI crawlers.
 
@@ -168,14 +168,14 @@ if (decision.isDenied()) {
 }
 ```
 
-## SEO (`@repo/seo`)
+## SEO (`@jasonmorganson/seo`)
 
 **Key exports**:
-- `createMetadata` from `@repo/seo/metadata` — generates Next.js metadata with deep merge
+- `createMetadata` from `@jasonmorganson/seo/metadata` — generates Next.js metadata with deep merge
 
 **Usage**:
 ```typescript
-import { createMetadata } from '@repo/seo/metadata';
+import { createMetadata } from '@jasonmorganson/seo/metadata';
 export const metadata = createMetadata({
   title: 'Page Title',
   description: 'Page description',
@@ -186,9 +186,9 @@ export const metadata = createMetadata({
 
 **JSON-LD**: Structured data support for search engines.
 
-**Security headers**: Nosecone integration via `@repo/security/middleware`.
+**Security headers**: Nosecone integration via `@jasonmorganson/security/middleware`.
 
-## Feature Flags (`@repo/feature-flags`)
+## Feature Flags (`@jasonmorganson/feature-flags`)
 
 **System**: Vercel Flags SDK + PostHog
 
@@ -204,7 +204,7 @@ const isEnabled = await myFlag();
 
 Flags require an authenticated user context. Override flags in development via the Vercel Toolbar.
 
-## Internationalization (`@repo/internationalization`)
+## Internationalization (`@jasonmorganson/internationalization`)
 
 **Provider**: Languine
 
@@ -223,7 +223,7 @@ const dict = await getDictionary(locale);
 
 **Translate**: `bun run translate`
 
-## Webhooks (`@repo/webhooks`)
+## Webhooks (`@jasonmorganson/webhooks`)
 
 ### Inbound
 - **Stripe**: `POST /api/webhooks/payments` — payment and subscription events
@@ -239,7 +239,7 @@ const dict = await getDictionary(locale);
 
 Uses organization ID as the Svix app UID (stateless design).
 
-## Cron Jobs (`@repo/cron`)
+## Cron Jobs (`@jasonmorganson/cron`)
 
 **Platform**: Vercel Cron
 
@@ -253,7 +253,7 @@ Uses organization ID as the Svix app UID (stateless design).
 
 Cron routes must use the `GET` HTTP method. Test locally via direct HTTP GET.
 
-## Notifications (`@repo/notifications`)
+## Notifications (`@jasonmorganson/notifications`)
 
 **Provider**: Knock
 
@@ -263,7 +263,7 @@ Cron routes must use the `GET` HTTP method. Test locally via direct HTTP GET.
 
 **Channels**: In-app, email, SMS, push, and chat — configured via Knock workflows.
 
-## Collaboration (`@repo/collaboration`)
+## Collaboration (`@jasonmorganson/collaboration`)
 
 **Provider**: Liveblocks
 
@@ -277,15 +277,15 @@ Cron routes must use the `GET` HTTP method. Test locally via direct HTTP GET.
 
 Requires `LIVEBLOCKS_SECRET` environment variable.
 
-## AI (`@repo/ai`)
+## AI (`@jasonmorganson/ai`)
 
 AI/LLM integration package for adding AI-powered features to the application.
 
-## Rate Limit (`@repo/rate-limit`)
+## Rate Limit (`@jasonmorganson/rate-limit`)
 
-Rate limiting utilities used in conjunction with `@repo/security` for request throttling.
+Rate limiting utilities used in conjunction with `@jasonmorganson/security` for request throttling.
 
-## Next Config (`@repo/next-config`)
+## Next Config (`@jasonmorganson/next-config`)
 
 Shared Next.js configuration applied across apps:
 - Image optimization (AVIF, WebP)
@@ -295,6 +295,6 @@ Shared Next.js configuration applied across apps:
 - OpenTelemetry webpack compatibility fix
 - Bundle analyzer support
 
-## TypeScript Config (`@repo/typescript-config`)
+## TypeScript Config (`@jasonmorganson/typescript-config`)
 
 Shared TypeScript configurations extended by all apps and packages.

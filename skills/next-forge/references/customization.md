@@ -9,7 +9,7 @@ next-forge is designed to be modular. Each integration can be replaced by modify
 **Default**: Prisma + Neon PostgreSQL
 
 **Alternatives**:
-- **Drizzle** — Replace Prisma schema with Drizzle schema definitions. Update `@repo/database` exports to use Drizzle client.
+- **Drizzle** — Replace Prisma schema with Drizzle schema definitions. Update `@jasonmorganson/database` exports to use Drizzle client.
 - **PlanetScale** — Change the Prisma datasource provider or use PlanetScale's serverless driver.
 - **Supabase** — Use Supabase's PostgreSQL connection string as `DATABASE_URL`, or swap to the Supabase client SDK.
 - **Turso** — Use Turso's libSQL adapter with Prisma or Drizzle.
@@ -23,9 +23,9 @@ To swap: update `packages/database/`, change the client export, and update `DATA
 **Default**: Clerk
 
 **Alternatives**:
-- **Supabase Auth** — Replace `@repo/auth` with Supabase Auth client. Update middleware and session handling.
+- **Supabase Auth** — Replace `@jasonmorganson/auth` with Supabase Auth client. Update middleware and session handling.
 - **Auth.js** — Implement Auth.js (NextAuth v5) with chosen providers. Update session access patterns.
-- **Better Auth** — Use Better Auth's session management. Update `@repo/auth` exports.
+- **Better Auth** — Use Better Auth's session management. Update `@jasonmorganson/auth` exports.
 
 To swap: replace `packages/auth/`, update the `AuthProvider` in the design system, and update webhook handlers.
 
@@ -134,14 +134,14 @@ Three strategies for preview environment inter-app communication:
 
 1. Create a new directory under `/apps/`.
 2. Initialize a Next.js app (or other framework).
-3. Add `@repo/*` package dependencies as needed.
+3. Add `@jasonmorganson/*` package dependencies as needed.
 4. Add the app to `turbo.json` if it needs custom pipeline tasks.
 5. Assign a unique development port.
 
 ## Adding New Packages
 
 1. Create a new directory under `/packages/`.
-2. Add a `package.json` with the `@repo/<name>` naming convention.
+2. Add a `package.json` with the `@jasonmorganson/<name>` naming convention.
 3. Export the package's public API.
 4. Add a `keys.ts` file if the package requires environment variables (use `@t3-oss/env-nextjs` with Zod).
 5. Add the package as a dependency in consuming apps.
@@ -171,7 +171,7 @@ npx shadcn@latest add [component] -c packages/design-system
 Create custom compound components following the composable pattern:
 
 ```typescript
-import { Banner, BannerContent, BannerTitle, BannerDescription } from '@repo/design-system/components/banner';
+import { Banner, BannerContent, BannerTitle, BannerDescription } from '@jasonmorganson/design-system/components/banner';
 ```
 
 ## Extending Features

@@ -1,0 +1,22 @@
+name: Audit next-forge upstream
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 8 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Compare documented baseline with current upstream
+        run: |
+          git remote add upstream https://github.com/vercel/next-forge.git
+          git fetch upstream main
+          git log --left-right --count HEAD...upstream/main

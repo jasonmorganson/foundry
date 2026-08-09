@@ -88,13 +88,13 @@ The [`@libsql/client`](https://www.npmjs.com/@libsql/client) is used to connect 
 Uninstall the existing dependencies for Neon...
 
 ```package-install
-npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
+npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @jasonmorganson/database
 ```
 
 ... and install the new dependencies for Turso & libSQL:
 
 ```package-install
-npm install @libsql/client --filter @repo/database
+npm install @libsql/client --filter @jasonmorganson/database
 ```
 
 ## 6. Update the database connection code
@@ -105,7 +105,7 @@ Open `packages/database/index.ts` and make the following changes:
 import "server-only";
 
 import { createClient } from "@libsql/client";
-import { env } from "@repo/env";
+import { env } from "@jasonmorganson/env";
 
 const libsql = createClient({
   url: env.DATABASE_URL,
@@ -138,7 +138,7 @@ CREATE TABLE pages (
 Now wherever you would usually call Prisma, use the `libsql` client instead:
 
 ```ts title="packages/app/app/(authenticated)/page.tsx"
-import { database } from "@repo/database";
+import { database } from "@jasonmorganson/database";
 
 type PageType = {
   id: number;

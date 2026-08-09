@@ -1,7 +1,10 @@
-import { withCMS } from "@repo/cms/next-config";
-import { withToolbar } from "@repo/feature-flags/lib/toolbar";
-import { config, withAnalyzer } from "@repo/next-config";
-import { withLogging, withSentry } from "@repo/observability/next-config";
+import { withCMS } from "@jasonmorganson/cms/next-config";
+import { withToolbar } from "@jasonmorganson/feature-flags/lib/toolbar";
+import { config, withAnalyzer } from "@jasonmorganson/next-config";
+import {
+  withLogging,
+  withSentry,
+} from "@jasonmorganson/observability/next-config";
 import type { NextConfig } from "next";
 import { env } from "@/env";
 

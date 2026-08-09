@@ -54,7 +54,7 @@ ENV APP_NAME=$APP_NAME
 # ARG DATABASE_URL
 # ENV DATABASE_URL=$DATABASE_URL
 
-RUN bun run build --filter=@repo/${APP_NAME}
+RUN bun run build --filter=@jasonmorganson/${APP_NAME}
 
 # Stage 3: Production runner
 FROM node:20-slim AS runner

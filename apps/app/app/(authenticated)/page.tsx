@@ -1,5 +1,5 @@
-import { auth } from "@repo/auth/server";
-import { database } from "@repo/database";
+import { auth } from "@jasonmorganson/auth/server";
+import { database } from "@jasonmorganson/database";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";

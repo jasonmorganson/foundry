@@ -1,7 +1,7 @@
-import { initializeAnalytics } from "@repo/analytics/instrumentation-client";
-import { initializeSentry } from "@repo/observability/client";
+import { initializeAnalytics } from "@jasonmorganson/analytics/instrumentation-client";
+import { initializeSentry } from "@jasonmorganson/observability/client";
 
 initializeSentry();
 initializeAnalytics();
 
-export { onRouterTransitionStart } from "@repo/observability/client";
+export { onRouterTransitionStart } from "@jasonmorganson/observability/client";

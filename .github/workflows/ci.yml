@@ -1,0 +1,51 @@
+name: Validate Foundry
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  aube-node:
+    name: Aube and Node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v3
+      - run: aubr check:foundry
+      - run: aubr check
+      - run: aubr test
+      - run: aubr build
+
+  nub:
+    name: Nub compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v3
+      - run: nub install --frozen-lockfile
+      - run: nub run check:foundry
+      - run: nub run check
+      - run: nub run test
+      - run: nub run build
+      - run: git diff --exit-code -- pnpm-lock.yaml
+
+  secondary-package-managers:
+    name: ${{ matrix.manager }} compatibility
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        manager: [pnpm, bun]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v3
+      - run: ${{ matrix.manager }} install
+      - run: ${{ matrix.manager }} run check:foundry
+      - run: ${{ matrix.manager }} run check
+      - run: ${{ matrix.manager }} run test
+      - run: ${{ matrix.manager }} run build
+      - run: git diff --exit-code -- pnpm-lock.yaml

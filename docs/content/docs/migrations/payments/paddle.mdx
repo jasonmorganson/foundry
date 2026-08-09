@@ -21,13 +21,13 @@ related:
 First, uninstall the existing dependencies from the Payments package...
 
 ```package-install
-npm uninstall stripe --filter @repo/payments
+npm uninstall stripe --filter @jasonmorganson/payments
 ```
 
 ... and install the new dependencies...
 
 ```package-install
-npm install @paddle/paddle-node-sdk --filter @repo/payments
+npm install @paddle/paddle-node-sdk --filter @jasonmorganson/payments
 ```
 
 ## 2. Update the Payment keys
@@ -103,10 +103,10 @@ export * from '@paddle/paddle-node-sdk';
 Update the webhook handler for Paddle:
 
 ```ts title="apps/api/app/webhooks/payments/route.ts"
-import { keys } from '@repo/payments/keys';
+import { keys } from '@jasonmorganson/payments/keys';
 import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
-import { paddle } from '@repo/payments';
+import { paddle } from '@jasonmorganson/payments';
 
 export const POST = async (request: Request) => {
   try {
@@ -144,7 +144,7 @@ There's quite a lot you can do with Paddle, so check out the following resources
 Create a new file for `checkout` and install `paddle-js`:
 
 ```package-install
-npm install @paddle/paddle-js --filter @repo/payments
+npm install @paddle/paddle-js --filter @jasonmorganson/payments
 ```
 
 Then, create a new hook to initialize Paddle in the `packages/payments/checkout.tsx` file:
@@ -192,7 +192,7 @@ Finally, open a checkout on your pricing page:
 ```tsx title="apps/web/app/pricing/page.tsx"
 'use client';
 
-import { usePaddle } from '@repo/payments/checkout';
+import { usePaddle } from '@jasonmorganson/payments/checkout';
 
 const Pricing = () => {
   const paddle = usePaddle();

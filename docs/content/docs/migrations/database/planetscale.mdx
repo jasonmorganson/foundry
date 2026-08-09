@@ -37,18 +37,18 @@ DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<dat
 
 Etcetera.
 
-## 3. Swap out the required dependencies in `@repo/database`
+## 3. Swap out the required dependencies in `@jasonmorganson/database`
 
 Uninstall the existing dependencies...
 
 ```package-install
-npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
+npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @jasonmorganson/database
 ```
 
 ...and install the new ones:
 
 ```package-install
-npm install @planetscale/database @prisma/adapter-planetscale --filter @repo/database
+npm install @planetscale/database @prisma/adapter-planetscale --filter @jasonmorganson/database
 ```
 
 ## 4. Update the database connection code
@@ -61,7 +61,7 @@ import 'server-only';
 import { Client, connect } from '@planetscale/database';
 import { PrismaPlanetScale } from '@prisma/adapter-planetscale';
 import { PrismaClient } from '@prisma/client';
-import { env } from '@repo/env';
+import { env } from '@jasonmorganson/env';
 
 declare global {
   var cachedPrisma: PrismaClient | undefined;

@@ -33,7 +33,7 @@ captureException(new Error('My error message'));
 
 ## Tunneling
 
-The `sentryConfig.tunnelRoute` option in `@repo/next-config`'s Sentry configuration routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. This can increase your server load as well as your hosting bill.
+The `sentryConfig.tunnelRoute` option in `@jasonmorganson/next-config`'s Sentry configuration routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. This can increase your server load as well as your hosting bill.
 
 <Warning>
   Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-side errors will fail.

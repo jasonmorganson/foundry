@@ -30,7 +30,7 @@ By default, the API app only handles webhooks and cron jobs. However, you can ad
 
 ### When you need the API
 
-In many cases, you don't need to call the API app at all. Since `app` and `web` are both Next.js applications, they can use [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components), [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations), and [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) to access the database and other services directly through shared packages like `@repo/database`.
+In many cases, you don't need to call the API app at all. Since `app` and `web` are both Next.js applications, they can use [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components), [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations), and [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) to access the database and other services directly through shared packages like `@jasonmorganson/database`.
 
 The API app is useful when you need:
 
@@ -43,7 +43,7 @@ The API app is useful when you need:
 Create a new route handler in `apps/api/app`. For example, to create a `/users` endpoint:
 
 ```ts title="apps/api/app/users/route.ts"
-import { database } from '@repo/database';
+import { database } from '@jasonmorganson/database';
 
 export const GET = async () => {
   const users = await database.user.findMany();

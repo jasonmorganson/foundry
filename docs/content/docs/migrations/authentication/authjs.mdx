@@ -21,13 +21,13 @@ Here's how to switch from Clerk to [Auth.js](https://authjs.dev/).
 Uninstall the existing Clerk dependencies from the `auth` package...
 
 ```package-install
-npm uninstall @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
+npm uninstall @clerk/nextjs @clerk/themes @clerk/types --filter @jasonmorganson/auth
 ```
 
 ... and install the Auth.js dependencies.
 
 ```package-install
-npm install next-auth@beta --filter @repo/auth
+npm install next-auth@beta --filter @jasonmorganson/auth
 ```
 
 ## 2. Generate an Auth.js secret
@@ -121,7 +121,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => children;
 In your `app` application, create an auth route handler file with the following content:
 
 ```tsx title="apps/app/api/auth/[...nextauth]/route.ts"
-import { handlers } from "@repo/auth"
+import { handlers } from "@jasonmorganson/auth"
 
 export const { GET, POST } = handlers;
 ```

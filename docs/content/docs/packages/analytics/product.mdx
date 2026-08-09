@@ -14,16 +14,16 @@ PostHog is an optional integration. If `NEXT_PUBLIC_POSTHOG_KEY` and `NEXT_PUBLI
 
 ## Usage
 
-To capture product events, you can use the `analytics` object exported from the `@repo/analytics` package. Since analytics is optional, use optional chaining when calling methods.
+To capture product events, you can use the `analytics` object exported from the `@jasonmorganson/analytics` package. Since analytics is optional, use optional chaining when calling methods.
 
 Start by importing the `analytics` object for the relevant environment:
 
 ```tsx
 // For server-side code
-import { analytics } from '@repo/analytics/server';
+import { analytics } from '@jasonmorganson/analytics/server';
 
 // For client-side code
-import { analytics } from '@repo/analytics';
+import { analytics } from '@jasonmorganson/analytics';
 ```
 
 Then, you can use the `capture` method to send events:

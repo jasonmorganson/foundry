@@ -14,14 +14,14 @@ It's possible to switch to [Content Collections](https://www.content-collections
 Remove the existing dependencies...
 
 ```package-install
-npm uninstall basehub --filter @repo/cms
+npm uninstall basehub --filter @jasonmorganson/cms
 ```
 
 ... and install the new dependencies...
 
 ```package-install
-npm install @content-collections/mdx fumadocs-core --filter @repo/cms
-npm install -D @content-collections/cli @content-collections/core @content-collections/next --filter @repo/cms
+npm install @content-collections/mdx fumadocs-core --filter @jasonmorganson/cms
+npm install -D @content-collections/cli @content-collections/core @content-collections/next --filter @jasonmorganson/cms
 ```
 
 ## 2. Update the `.gitignore` file
@@ -265,7 +265,7 @@ export default defineConfig({
 Create a configuration file in the root of your `web` app:
 
 ```ts title="apps/web/content-collections.ts"
-export { default } from '@repo/cms/collections';
+export { default } from '@jasonmorganson/cms/collections';
 ```
 
 <Note>
@@ -293,7 +293,7 @@ The same concept applies to the `legal` collection, which is used to generate th
 
 ## 8. Remove the environment variables
 
-Finally, remove all instances of `BASEHUB_TOKEN` from the `@repo/env` package.
+Finally, remove all instances of `BASEHUB_TOKEN` from the `@jasonmorganson/env` package.
 
 ## 9. Bonus features
 

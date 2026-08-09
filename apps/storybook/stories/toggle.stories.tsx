@@ -1,4 +1,4 @@
-import { Toggle } from "@repo/design-system/components/ui/toggle";
+import { Toggle } from "@jasonmorganson/design-system/components/ui/toggle";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Bold, Italic } from "lucide-react";
 

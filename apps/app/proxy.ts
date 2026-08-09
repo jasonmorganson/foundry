@@ -1,9 +1,9 @@
-import { authMiddleware } from "@repo/auth/proxy";
+import { authMiddleware } from "@jasonmorganson/auth/proxy";
 import {
   noseconeOptions,
   noseconeOptionsWithToolbar,
   securityMiddleware,
-} from "@repo/security/proxy";
+} from "@jasonmorganson/security/proxy";
 import type { NextProxy } from "next/server";
 import { env } from "./env";
 

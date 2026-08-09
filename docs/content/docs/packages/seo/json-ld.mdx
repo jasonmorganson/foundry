@@ -20,11 +20,11 @@ By default, structured data is implemented on the following pages:
 
 ## Usage
 
-Our `@repo/seo` package provides a JSON+LD helper built on `schema-dts`, allowing for structured data generation in a type-safe way. You can declare your own JSON+LD implementations like so:
+Our `@jasonmorganson/seo` package provides a JSON+LD helper built on `schema-dts`, allowing for structured data generation in a type-safe way. You can declare your own JSON+LD implementations like so:
 
 ```tsx title="page.tsx"
-import { JsonLd } from '@repo/seo/json-ld';
-import type { WithContext, YourInterface } from '@repo/seo/json-ld';
+import { JsonLd } from '@jasonmorganson/seo/json-ld';
+import type { WithContext, YourInterface } from '@jasonmorganson/seo/json-ld';
 
 const jsonLd: WithContext<YourInterface> = {
   // ...

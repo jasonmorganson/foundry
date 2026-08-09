@@ -1,9 +1,9 @@
+import { legal } from "@jasonmorganson/cms";
+import { Body } from "@jasonmorganson/cms/components/body";
+import { Feed } from "@jasonmorganson/cms/components/feed";
+import { TableOfContents } from "@jasonmorganson/cms/components/toc";
+import { createMetadata } from "@jasonmorganson/seo/metadata";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
-import { legal } from "@repo/cms";
-import { Body } from "@repo/cms/components/body";
-import { Feed } from "@repo/cms/components/feed";
-import { TableOfContents } from "@repo/cms/components/toc";
-import { createMetadata } from "@repo/seo/metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";

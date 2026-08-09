@@ -1,12 +1,12 @@
-import { analytics } from "@repo/analytics/server";
+import { analytics } from "@jasonmorganson/analytics/server";
 import type {
   DeletedObjectJSON,
   OrganizationJSON,
   OrganizationMembershipJSON,
   UserJSON,
   WebhookEvent,
-} from "@repo/auth/server";
-import { log } from "@repo/observability/log";
+} from "@jasonmorganson/auth/server";
+import { log } from "@jasonmorganson/observability/log";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { Webhook } from "svix";

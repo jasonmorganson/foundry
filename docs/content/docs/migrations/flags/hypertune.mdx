@@ -64,13 +64,13 @@ First, delete the `create-flag.ts` file.
 Then, uninstall the existing dependencies from the `feature-flags` package:
 
 ```package-install
-npm uninstall @repo/analytics --filter @repo/feature-flags
+npm uninstall @jasonmorganson/analytics --filter @jasonmorganson/feature-flags
 ```
 
 Then, install the new dependencies:
 
 ```package-install
-npm install hypertune server-only --filter @repo/feature-flags
+npm install hypertune server-only --filter @jasonmorganson/feature-flags
 ```
 
 ## 5. Set up Hypertune code generation
@@ -89,7 +89,7 @@ Add `analyze` and `build` scripts to the `package.json` file for the `feature-fl
 Then run code generation with the following command:
 
 ```sh title="Terminal"
-bun run build --filter @repo/feature-flags 
+bun run build --filter @jasonmorganson/feature-flags
 ```
 
 This will generate the following files:
@@ -106,7 +106,7 @@ Add a `getHypertune.ts` file in the `feature-flags` package which defines a `get
 
 ```ts title="packages/feature-flags/lib/getHypertune.ts"
 import 'server-only';
-import { auth } from '@repo/auth/server';
+import { auth } from '@jasonmorganson/auth/server';
 import { noStore } from 'next/cache';
 import type { ReadonlyHeaders } from 'next/dist/server/web/spec-extension/adapters/headers';
 import type { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies';

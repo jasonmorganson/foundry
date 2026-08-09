@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm:next-dev\" \"npm:stripe\"",
-    "next-dev": "bun --bun next dev -p 3002",
-    "build": "bun --bun next build",
-    "start": "bun --bun next start",
+    "next-dev": "next dev -p 3002",
+    "build": "next build",
+    "start": "next start",
     "analyze": "ANALYZE=true npm run build",
     "test": "NODE_ENV=test vitest run",
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/payments",
@@ -13,13 +13,13 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@repo/analytics": "workspace:*",
-    "@repo/auth": "workspace:*",
-    "@repo/database": "workspace:*",
-    "@repo/design-system": "workspace:*",
-    "@repo/next-config": "workspace:*",
-    "@repo/observability": "workspace:*",
-    "@repo/payments": "workspace:*",
+    "@jasonmorganson/analytics": "workspace:*",
+    "@jasonmorganson/auth": "workspace:*",
+    "@jasonmorganson/database": "workspace:*",
+    "@jasonmorganson/design-system": "workspace:*",
+    "@jasonmorganson/next-config": "workspace:*",
+    "@jasonmorganson/observability": "workspace:*",
+    "@jasonmorganson/payments": "workspace:*",
     "@sentry/nextjs": "^10.42.0",
     "@t3-oss/env-nextjs": "^0.13.10",
     "import-in-the-middle": "^3.0.0",
@@ -31,7 +31,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@jasonmorganson/typescript-config": "workspace:*",
     "@types/node": "25.3.5",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",

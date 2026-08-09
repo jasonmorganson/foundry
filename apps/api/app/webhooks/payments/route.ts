@@ -1,9 +1,9 @@
-import { analytics } from "@repo/analytics/server";
-import { clerkClient } from "@repo/auth/server";
-import { parseError } from "@repo/observability/error";
-import { log } from "@repo/observability/log";
-import type { Stripe } from "@repo/payments";
-import { stripe } from "@repo/payments";
+import { analytics } from "@jasonmorganson/analytics/server";
+import { clerkClient } from "@jasonmorganson/auth/server";
+import { parseError } from "@jasonmorganson/observability/error";
+import { log } from "@jasonmorganson/observability/log";
+import type { Stripe } from "@jasonmorganson/payments";
+import { stripe } from "@jasonmorganson/payments";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { env } from "@/env";
